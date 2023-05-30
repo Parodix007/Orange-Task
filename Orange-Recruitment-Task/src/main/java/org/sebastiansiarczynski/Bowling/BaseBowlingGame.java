@@ -62,9 +62,11 @@ public class BaseBowlingGame implements BowlingGame {
   @Override
   public int calculateScore() throws BowlingGameExceptions {
     try {
-      log.info("Getting a score for a playerId {}", player.getId());
+      final int scoreForPlayer = bowlingGameScoreChart.getScoreForPlayer(player.getId());
 
-      return bowlingGameScoreChart.getScoreForPlayer(player.getId());
+      log.info("Getting a score {} for a playerId {}", scoreForPlayer, player.getId());
+
+      return scoreForPlayer;
     } catch (final Exception error) {
       log.error("Error while getting a score for a playerId {}", player.getId(), error);
 
