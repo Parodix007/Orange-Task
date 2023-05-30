@@ -55,7 +55,7 @@ public class BaseBowlingGame implements BowlingGame {
     } catch (final Exception error) {
       log.error("Error while handling a roll for a playerId {}", player.getId(), error);
 
-      throw new BowlingGameExceptions("Error while roll", error);
+      throw new BowlingGameExceptions("Error while a roll", error);
     }
   }
 
