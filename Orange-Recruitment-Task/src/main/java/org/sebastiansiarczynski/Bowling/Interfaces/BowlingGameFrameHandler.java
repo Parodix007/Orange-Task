@@ -1,19 +1,22 @@
 package org.sebastiansiarczynski.Bowling.Interfaces;
 
+import org.sebastiansiarczynski.Bowling.frame.exceptions.BowlingGameFrameException;
+
 public interface BowlingGameFrameHandler {
 
-  int getAttemptsForPlayer(String playerId);
+  int getAttemptsForPlayer(String playerId) throws BowlingGameFrameException;
 
-  int updateFrameScoreForPlayer(String playerId, int score);
+  int updateFrameScoreForPlayer(String playerId, String frameId, int score)
+      throws BowlingGameFrameException;
 
-  int getFrameIdForPlayer(String playerId);
+  String getFrameIdForPlayer(String playerId) throws BowlingGameFrameException;
 
-  void markFrameAsStrike(String playerId, String frameId);
+  void markFrameAsStrike(String playerId, String frameId) throws BowlingGameFrameException;
 
-  void markFrameAsSpare(String playerId, String frameId);
+  void checkIfNeedToSetBonusForStrike(String playerId, String frameId)
+      throws BowlingGameFrameException;
 
-  void checkIfNeedToSetBonusForStrike(String playerId, String frameId);
-
-  void checkIfNeedToSetBonusForSpare(String playerId, String frameId);
+  void checkIfNeedToSetBonusForSpare(String playerId, String frameId)
+      throws BowlingGameFrameException;
 
 }
